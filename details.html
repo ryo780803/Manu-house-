@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facilities & Amenities | Hida Manu House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --primary: #2c3e50; 
+            --accent: #d4a373; 
+            --green: #1a4d32; 
+            --bg: #fdfaf7; 
+            --text: #333; 
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); line-height: 1.8; background-color: var(--bg); }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 5%; }
+        
+        /* 高級感のある言語切り替えスイッチ */
+        .lang-switch-wrapper { display: flex; justify-content: center; margin-bottom: 40px; }
+        .lang-switch { display: flex; background: #eee; padding: 4px; border-radius: 50px; position: relative; width: 120px; cursor: pointer; }
+        .lang-switch button { flex: 1; border: none; background: none; padding: 8px 0; font-size: 0.75rem; font-weight: bold; color: #888; cursor: pointer; z-index: 2; transition: color 0.3s; }
+        .lang-switch button.active { color: #fff; }
+        .lang-switch::before { content: ''; position: absolute; top: 4px; left: 4px; width: calc(50% - 4px); height: calc(100% - 8px); background: var(--green); border-radius: 50px; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1; }
+        body.is-en .lang-switch::before { transform: translateX(100%); }
+
+        /* 言語表示制御 */
+        body:not(.is-en) .lang-en, body.is-en .lang-ja { display: none !important; }
+
+        /* Header */
+        .page-header { text-align: center; margin-bottom: 60px; }
+        .page-header h1 { font-family: 'Shippori Mincho', serif; font-size: 1.8rem; margin-bottom: 10px; color: var(--primary); }
+        .page-header p { font-size: 0.8rem; color: #999; letter-spacing: 0.2em; }
+
+        /* セクション共通 */
+        .section { margin-bottom: 80px; }
+        .section-title { font-family: 'Shippori Mincho', serif; font-size: 1.4rem; color: var(--green); margin-bottom: 25px; border-left: 3px solid var(--accent); padding-left: 15px; }
+        .section-desc { font-size: 0.9rem; color: #666; margin-bottom: 25px; }
+
+        /* 写真ギャラリー */
+        .photo-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 25px; }
+        @media (min-width: 768px) { .photo-gallery { grid-template-columns: repeat(4, 1fr); } }
+        .photo-gallery img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .photo-gallery img:hover { opacity: 0.8; }
+
+        /* アメニティリスト */
+        .amenity-list { list-style: none; background: #fff; padding: 25px; border-radius: 4px; display: grid; grid-template-columns: 1fr; gap: 10px; border: 1px solid #eee; }
+        @media (min-width: 600px) { .amenity-list { grid-template-columns: 1fr 1fr; } }
+        .amenity-item { font-size: 0.85rem; border-bottom: 1px solid #f5f5f5; padding: 10px 0; display: flex; justify-content: space-between; gap: 10px; }
+        .amenity-item strong { color: var(--primary); font-weight: 500; min-width: 80px; }
+        .amenity-item span { text-align: right; color: #555; }
+
+        /* フッターボタン */
+        .footer-nav { text-align: center; margin-top: 60px; padding-bottom: 60px; }
+        .btn-back { display: inline-block; padding: 15px 50px; background: var(--primary); text-decoration: none; color: #fff; font-weight: bold; border-radius: 50px; transition: 0.3s; font-size: 0.9rem; }
+        .btn-back:hover { opacity: 0.8; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="page-header">
+            <div class="lang-switch-wrapper">
+                <div class="lang-switch">
+                    <button id="btn-ja" onclick="setLang('ja')">JP</button>
+                    <button id="btn-en" onclick="setLang('en')">EN</button>
+                </div>
+            </div>
+            <h1 class="lang-ja">設備・アメニティ詳細</h1>
+            <h1 class="lang-en">Facilities & Amenities</h1>
+            <p>DETAILS</p>
+        </header>
+
+        <!-- 1. リビング・ダイニング -->
+        <section class="section">
+            <h2 class="section-title"><span class="lang-ja">リビング・ダイニング</span><span class="lang-en">Living & Dining</span></h2>
+            <p class="section-desc lang-ja">木の温もりを感じる広々とした空間。大人数でもゆったりと囲める大きなダイニングテーブルと、くつろげるベンチシートを完備しています。</p>
+            <p class="section-desc lang-en">A spacious area where you can feel the warmth of wood. It features a large dining table for groups and cozy bench seating.</p>
+            <div class="photo-gallery">
+                <img src="images/unnamed (12).jpg" alt="Living">
+                <img src="images/unnamed (10).jpg" alt="Living">
+                <img src="images/unnamed (11).jpg" alt="Living">
+                <img src="images/unnamed (9).jpg" alt="Living">
+            </div>
+            <ul class="amenity-list">
+                <li class="amenity-item"><strong class="lang-ja">テーブル</strong><strong class="lang-en">Table</strong><span class="lang-ja">大型木製テーブル</span><span class="lang-en">Large Wooden Table</span></li>
+                <li class="amenity-item"><strong class="lang-ja">座席</strong><strong class="lang-en">Seats</strong><span class="lang-ja">椅子・ベンチシート</span><span class="lang-en">Chairs & Bench Seats</span></li>
+                <li class="amenity-item"><strong class="lang-ja">冷暖房</strong><strong class="lang-en">A/C</strong><span class="lang-ja">エアコン完備</span><span class="lang-en">Full Air Conditioning</span></li>
+                <li class="amenity-item"><strong class="lang-ja">Wi-Fi</strong><strong class="lang-en">Wi-Fi</strong><span class="lang-ja">高速無線LAN無料</span><span class="lang-en">High-speed Free Wi-Fi</span></li>
+            </ul>
+        </section>
+
+        <!-- 2. キッチン -->
+        <section class="section">
+            <h2 class="section-title"><span class="lang-ja">キッチン・調理器具</span><span class="lang-en">Kitchen & Cookware</span></h2>
+            <p class="section-desc lang-ja">3口IHコンロ、大型冷蔵庫、豊富な調理器具を取り揃えた本格キッチン。ご家族や友人と自炊を楽しめます。</p>
+            <p class="section-desc lang-en">A full kitchen with a 3-burner IH stovetop, large fridge, and various utensils. Enjoy cooking with family and friends.</p>
+            <div class="photo-gallery">
+                <img src="images/unnamed (4).jpg" alt="Kitchen">
+                <img src="images/unnamed (5).jpg" alt="Kitchen">
+                <img src="images/unnamed (6).jpg" alt="Kitchen">
+                <img src="images/unnamed (7).jpg" alt="Kitchen">
+            </div>
+            <ul class="amenity-list">
+                <li class="amenity-item"><strong class="lang-ja">コンロ</strong><strong class="lang-en">Stove</strong><span class="lang-ja">3口IHクッキングヒーター</span><span class="lang-en">3-burner IH Heater</span></li>
+                <li class="amenity-item"><strong class="lang-ja">家電</strong><strong class="lang-en">Appliances</strong><span class="lang-ja">大型冷蔵庫, レンジ, 炊飯器, ケトル</span><span class="lang-en">Fridge, Microwave, Rice Cooker, Kettle</span></li>
+                <li class="amenity-item"><strong class="lang-ja">調理器具</strong><strong class="lang-en">Utensils</strong><span class="lang-ja">フライパン, 鍋, 包丁, まな板</span><span class="lang-en">Pans, Pots, Knives, Cutting Board</span></li>
+                <li class="amenity-item"><strong class="lang-ja">カトラリー</strong><strong class="lang-en">Cutlery</strong><span class="lang-ja">箸, スプーン, フォーク, 栓抜き</span><span class="lang-en">Chopsticks, Spoons, Forks, Opener</span></li>
+            </ul>
+        </section>
+
+        <!-- 3. ベッドルーム -->
+        <section class="section">
+            <h2 class="section-title"><span class="lang-ja">ベッドルーム（寝室）</span><span class="lang-en">Bedrooms</span></h2>
+            <p class="section-desc lang-ja">畳の香りが心地よい和室に、快適なシングルベッドを計6台設置。清潔なリネンで、旅の疲れを癒してください。</p>
+            <p class="section-desc lang-en">Comfortable tatami rooms equipped with a total of 6 single beds. Relax with our clean, high-quality linens.</p>
+            <div class="photo-gallery">
+                <img src="images/unnamed.jpg" alt="Bed">
+                <img src="images/unnamed (1).jpg" alt="Bed">
+                <img src="images/unnamed (2).jpg" alt="Bed">
+                <img src="images/unnamed (3).jpg" alt="Bed">
+            </div>
+            <ul class="amenity-list">
+                <li class="amenity-item"><strong class="lang-ja">ベッド数</strong><strong class="lang-en">Beds</strong><span class="lang-ja">シングルベッド × 6台</span><span class="lang-en">6 Single Beds</span></li>
+                <li class="amenity-item"><strong class="lang-ja">寝具</strong><strong class="lang-en">Bedding</strong><span class="lang-ja">羽毛布団, 清潔なシーツ一式</span><span class="lang-en">Duvets, Clean Sheets Set</span></li>
+            </ul>
+        </section>
+
+        <!-- 4. 水回り -->
+        <section class="section">
+            <h2 class="section-title"><span class="lang-ja">バス・トイレ・ランドリー</span><span class="lang-en">Bath, Toilet & Laundry</span></h2>
+            <p class="section-desc lang-ja">清潔感のあるバスルームと洗面スペース。洗濯機も完備しているため、長期滞在やお子様連れの旅行でも安心です。</p>
+            <p class="section-desc lang-en">Clean bathroom and vanity space. Equipped with a washing machine, perfect for long-term stays and families.</p>
+            <div class="photo-gallery">
+                <img src="images/unnamed (15).jpg" alt="Bath">
+                <img src="images/unnamed (16).jpg" alt="Washroom">
+                <img src="images/unnamed (17).jpg" alt="Washroom">
+                <img src="images/unnamed (18).jpg" alt="Toilet">
+            </div>
+            <ul class="amenity-list">
+                <li class="amenity-item"><strong class="lang-ja">バス</strong><strong class="lang-en">Bath</strong><span class="lang-ja">バスタブ, シャワー, 洗面器</span><span class="lang-en">Bathtub, Shower, Washbasin</span></li>
+                <li class="amenity-item"><strong class="lang-ja">トイレ</strong><strong class="lang-en">Toilet</strong><span class="lang-ja">温水洗浄便座（ウォシュレット）</span><span class="lang-en">Bidet Toilet (Washlet)</span></li>
+                <li class="amenity-item"><strong class="lang-ja">洗濯</strong><strong class="lang-en">Laundry</strong><span class="lang-ja">全自動洗濯機（無料）</span><span class="lang-en">Washing Machine (Free)</span></li>
+                <li class="amenity-item"><strong class="lang-ja">消耗品</strong><strong class="lang-en">Amenities</strong><span class="lang-ja">シャンプー, リンス, ボディソープ</span><span class="lang-en">Shampoo, Conditioner, Body Soap</span></li>
+            </ul>
+        </section>
+
+        <footer class="footer-nav">
+            <a href="index.html" class="btn-back">
+                <span class="lang-ja">トップページへ戻る</span>
+                <span class="lang-en">Back to Top</span>
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            const body = document.body;
+            const btnJa = document.getElementById('btn-ja');
+            const btnEn = document.getElementById('btn-en');
+            if (lang === 'en') {
+                body.classList.add('is-en');
+                localStorage.setItem('lang', 'en');
+                if(btnEn) btnEn.classList.add('active');
+                if(btnJa) btnJa.classList.remove('active');
+            } else {
+                body.classList.remove('is-en');
+                localStorage.setItem('lang', 'ja');
+                if(btnJa) btnJa.classList.add('active');
+                if(btnEn) btnEn.classList.remove('active');
+            }
+        }
+        window.onload = function() {
+            const savedLang = localStorage.getItem('lang') || 'ja';
+            setLang(savedLang);
+        };
+    </script>
+</body>
+</html>
